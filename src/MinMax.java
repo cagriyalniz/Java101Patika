@@ -44,6 +44,5 @@ public class MinMax {
             syc++;
         }
         System.out.println("en buyuk sayi: " + max + " en kucuk sayi: " + min);
-
     }
 }
