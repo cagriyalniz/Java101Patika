@@ -29,6 +29,7 @@ public class BurcBulma {
         ay = inp.nextInt();
         System.out.println("hangi gun dogdunuz");
         gun = inp.nextInt();
+/*
 
         if (ay == 1) {
             if (gun <= 21) {
@@ -102,6 +103,98 @@ public class BurcBulma {
             } else {
                 System.out.print("burcunuz oglak");
             }
+        }
+*/
+
+        System.out.println("----------- ODEV ----------");
+
+        switch (ay)
+        {
+            case 1:
+                if (gun <= 21) {
+                    System.out.print("burcunuz oglak");
+                } else {
+                    System.out.print("burcunuz kova");
+                }
+                break;
+            case 2:
+                if (gun <= 19) {
+                    System.out.print("burcunuz kova");
+                } else {
+                    System.out.print("burcunuz balik");
+                }
+                break;
+            case 3:
+                if (gun <= 20) {
+                    System.out.print("burcunuz balik");
+                } else {
+                    System.out.print("burcunuz koc");
+                }
+                break;
+            case 4:
+                if (gun <= 20) {
+                    System.out.print("burcunuz koc");
+                } else {
+                    System.out.print("burcunuz boga");
+                }
+                break;
+            case 5:
+                if (gun <= 21) {
+                    System.out.print("burcunuz boga");
+                } else {
+                    System.out.print("burcunuz ikizler");
+                }
+                break;
+            case 6:
+                if (gun <= 22) {
+                    System.out.print("burcunuz ikizler");
+                } else {
+                    System.out.print("burcunuz yengec");
+                }
+                break;
+            case 7:
+                if (gun <= 22) {
+                    System.out.print("burcunuz yengec");
+                } else {
+                    System.out.print("burcunuz aslan");
+                }
+                break;
+            case 8:
+                if (gun <= 22) {
+                    System.out.print("burcunuz aslan");
+                } else {
+                    System.out.print("burcunuz basak");
+                }
+                break;
+            case 9:
+                if (gun <= 22) {
+                    System.out.print("burcunuz basak");
+                } else {
+                    System.out.print("burcunuz terazi");
+                }
+                break;
+            case 10:
+                if (gun <= 22) {
+                    System.out.print("burcunuz terazi");
+                } else {
+                    System.out.print("burcunuz akrep");
+                }
+                break;
+            case 11:
+                if (gun <= 21) {
+                    System.out.print("burcunuz akrep");
+                } else {
+                    System.out.print("burcunuz yay");
+                }
+                break;
+            case 12:
+                if (gun <= 21) {
+                    System.out.print("burcunuz yay");
+                } else {
+                    System.out.print("burcunuz oglak");
+                }
+                break;
+
         }
 
     }
