@@ -9,7 +9,6 @@ public class Harmonik {
         int nmbr;
         double harmonic = 0.0;
         Scanner inp = new Scanner(System.in);
-
         System.out.print("harmonigi hesaplanacak sayi: ");
         nmbr = inp.nextInt();
         for (double i = 1; i <= nmbr; i++){
