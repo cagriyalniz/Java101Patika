@@ -88,7 +88,7 @@ public class YildizUcgenElmas {
         while(tbsmk > 0){
 
             tyyldz = 2*bsmkylz -1;
-            int tbslk = 0;
+            int tbslk = 1;
             while (tyyldz + 2*tbslk < 2*y + 1){
                 System.out.print(".");
                 tbslk++;
@@ -102,7 +102,7 @@ public class YildizUcgenElmas {
             }
 
             tyyldz = 2*bsmkylz -1;
-            tbslk = 0;
+            tbslk = 1;
             while (tyyldz + 2*tbslk < 2*y + 1){
                 System.out.print(".");
                 tbslk++;
