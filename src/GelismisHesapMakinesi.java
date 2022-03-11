@@ -80,6 +80,75 @@ public class GelismisHesapMakinesi {
         System.out.println("bolme isleminin sonucu: " + bolunen);
 
     }
+
+    public static int PowCalc(int nmbr, int pow){
+        int res = 1;
+
+        if (pow > 0){
+            return (PowCalc(nmbr, pow - 1) * nmbr);
+        }
+        if (pow == 0)
+            return (1);
+        res *= nmbr;
+
+        return (res);
+    }
+
+    public static void pow(){
+        int nmbr, pow;
+        Scanner inp = new Scanner(System.in);
+
+        System.out.println("hangi sayinin kuvvetini alacaksiniz: ");
+        nmbr = inp.nextInt();
+        System.out.println("kacinci kuvvetini alacaksiniz:  ");
+        pow = inp.nextInt();
+        System.out.println(PowCalc(nmbr, pow));
+    }
+
+    public static void fact(){
+        Scanner inp = new Scanner(System.in);
+        int f, res = 1;
+
+        System.out.println("faktoriyalinin hesaplanmasini istediginiz sayiyi giriniz: ");
+        f = inp.nextInt();
+        while (f > 0){
+
+            res *= f;
+            f--;
+        }
+        System.out.println("girdiginiz sayinin faktoryeli: " + res);
+    }
+
+    public static void mod(){
+        Scanner inp = new Scanner(System.in);
+        int nmbr, mod, res;
+
+        System.out.println("hangi sayinin modu: ");
+        nmbr = inp.nextInt();
+        System.out.println("hangi sayiya gore mod: ");
+        mod = inp.nextInt();
+
+        res = nmbr % mod;
+        System.out.println(nmbr + " sayisinin " + mod + "sayisina gore modu: " + res);
+
+    }
+
+    public static void areaPerimeter(){
+        int en, boy;
+        Scanner inp = new Scanner(System.in);
+
+        System.out.println("dikdortgenin enini giriniz: ");
+        en = inp.nextInt();
+        System.out.println("dikdortgenin boyunu giriniz: ");
+        boy = inp.nextInt();
+
+        System.out.println("dikdortgenin alani: " + en*boy);
+        System.out.println("dikdortgenin cevresi: " + 2*(en + boy));
+    }
+
+
+
+
     public static void main(String[] args) {
 
         int flag = 1;
@@ -112,18 +181,22 @@ public class GelismisHesapMakinesi {
                     case 4:
                         divided();
                         break;
-//                case 5:
-//                    break;
-//                case 6:
-//                    break;
-//                case 7:
-//                    break;
-//                case 8:
-//                    break;
-//                case 0:
-//                    break;
-//                default:
-//                    System.out.println("yanlis bir deger girdiniz");
+                    case 5:
+                        pow();
+                        break;
+                  case 6:
+                        fact();
+                        break;
+                 case 7:
+                        mod();
+                        break;
+                 case 8:
+                     areaPerimeter();
+                     break;
+                 case 0:
+                     break;
+                 default:
+                     System.out.println("yanlis bir deger girdiniz");
 
             }
         }
