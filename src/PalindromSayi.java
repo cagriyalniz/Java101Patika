@@ -11,6 +11,7 @@ aynı olan sayılardır.
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.lang.String;
 public class PalindromSayi {
@@ -25,7 +26,7 @@ public class PalindromSayi {
         return (bsmk);
 
     }
-    private static int @NotNull []ToArray(int sayi2){
+    private static int []ToArray(int sayi2){
         String temp = Integer.toString(sayi2);
         int[] sayi3 = new int[temp.length()];
         for (int i = 0; i < temp.length(); i++) {
@@ -33,33 +34,60 @@ public class PalindromSayi {
         }
         return sayi3;
     }
-    /*private static int Pal(int sayi){
+    private static void Pal(int[] sayi, int len, int flag){
 
-        int bsmk = Basamak(sayi);
-        int i = 0;
-        int bolme = 0, bolen = 1;
-        while(bolme < bsmk){
-            bolen *=10;
-            bolme++;
-        }
-        while(i < bsmk/2){
-            if(sayi%10 != sayi/bolen)
-                return 0;
-            else{
-                i++;
-                sayi = sayi / 10;
-                sayi = sayi;
+        int i = 0, snElemn = len - 1, checkFlag = 1;
+        if (flag == 0){
+            while(i < snElemn/2){
+                if (sayi[i] != sayi[snElemn]){
+                    System.out.println("Palindrom degil!!!!!!!!");
+                    checkFlag = 0;
+                    break;
+                }
+                else{
+                    i++;
+                    snElemn--;
+                }
+
             }
+
         }
-    }*/
+        else{
+            while(i < len/2){
+                if (sayi[i] != sayi[snElemn]){
+                    System.out.println("Palindrom degil!!!!!!!!");
+                    checkFlag = 0;
+                    break;
+                }
+                else{
+                    i++;
+                    snElemn--;
+                }
+            }
+
+        }
+
+        if (checkFlag == 1)
+            System.out.println("bu sayi palindrom !!!!*!*!**!!");
+
+    }
 
     public static void main(String [] args){
-        int s1;
+        int s1, len, flag;
         Scanner inp = new Scanner(System.in);
 
         System.out.print("polindrom oldugunu merak ettiginiz sayiyi giriniz:    ");
         s1 = inp.nextInt();
-        System.out.println(ToArray(s1));
+        len = Basamak(s1);
+        if (len % 2 == 0)
+            flag = 0;
+        else
+            flag = 1;
+        int []s2 = new int[len];
+        s2 = ToArray(s1);
+        System.out.println(Arrays.toString(s2));
+
+        Pal(s2, len, flag);
 
     }
 }
