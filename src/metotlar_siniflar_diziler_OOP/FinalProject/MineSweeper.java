@@ -1,17 +1,20 @@
 package metotlar_siniflar_diziler_OOP.FinalProject;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.stream.DoubleStream;
+
 public class MineSweeper {
     int en;
     int boy;
-    int bomb;
+    int bombTotal;
 
     MineSweeper(int en, int boy) {
         this.en = en;
         this.boy = boy;
-        this.bomb = (en * boy) / 4;
+        this.bombTotal = (en * boy) / 4;
     }
 
     int[][] CreateBoard(MineSweeper masa) {
@@ -37,63 +40,64 @@ public class MineSweeper {
         return ar;
     }
 
-    int[][] AddBomb(MineSweeper masa) {
-        System.out.println("Hello world!");
-        int x = 123;
-        int y = 123;
-        int boy = 6, en = 4;
-        int mynSayisi = boy*en/ 4;
-        int Mboy[] = new int[mynSayisi + 1];
-        int Men[] = new int [mynSayisi + 1];
-        int Menboy[] = new int [mynSayisi];
-        int MmM[][] = new int[boy][en];
-        Random r = new Random ();
-        int flag = 1;
-        while (mynSayisi > 0){
+    public static int kendiBomb(MineSweeper masaB, float []bombaninyeri){
 
-            flag = 1;
-            while(flag == 1){
-                x = r.nextInt(boy + 1);
-                System.out.println("random x: " + x);
-                y = r.nextInt(en + 1);
-                System.out.println("random y: " + y);
-                for(int i : Mboy){
-                    System.out.println("i nin baktigi Mboy:" + i);
+        int syc = 0, index = 0, boy, en;
+        while(syc < bombaninyeri.length){
+            boy = (int)bombaninyeri[syc]/10;
+            en = (int)bombaninyeri[syc]%10;
+            alan(masaB[boy][en]);
 
-                    for(int j : Men){
-                        System.out.println("j nin baktigi Men:" + j);
-                        if(i == x && j == y){
-                            flag = 0;
-                            break;
-                        }
-                        j++;
-                    }
-                    if(flag == 0){
-                        break;
-                    }
-                    i++;
-                }
-                if(flag == 1){
-                    Mboy[x] = x;
-                    Men[y] = y;
-                    System.out.println("atana Mboy: " + Mboy[x] + " atanan Men: " + Men[y]);
-                }
-            }
-            System.out.println("Mboy[x]" + Mboy[x]);
-            System.out.println("Mboy[y]" + Mboy[y]);
-            mynSayisi--;
+            syc++;
         }
 
-        //Arrays.stream(Mboy).forEach(System.out::print);
+        return 1;//degisecek
 
-        System.out.println();
-        System.out.print(Arrays.toString(Mboy));
-        System.out.println();
-        System.out.print(Arrays.toString(Men));
-        //Arrays.stream(Men).forEach(System.out::print);
-        //System.out.println("x: " + Array + "y: " + y);
+    }
 
-        return masa.CreateBoard(masa);
+    public static void alan(int[][] eleman)
+    {
+
+    }
+
+    private static  float [] randomBomb(MineSweeper masa)
+    {
+        float []xr;
+        xr = new float[masa.bombTotal];
+        int en = masa.en; //disaridan masa.en diye cagirabilecegiz
+        int boy = masa.boy;
+        int adet = 0;
+        Random r = new Random();
+        int flag = 1;
+        while(adet < 6){
+            int b = r.nextInt(boy + 1 - 0) + 0;
+            int e = r.nextInt(en + 1 - 0) + 0;
+            //System.out.println("b:" + b);
+            //System.out.println("e: " + e);
+            //System.out.println(Arrays.toString(xr));
+            float be = (float)b + (float)((float)e*0.1);
+            flag = 1;
+            for(float don : xr){
+                if (be == don){
+                    flag = 0;
+                    break;
+                }
+            }
+            if (flag == 1){
+                xr[adet] = be;
+            }
+
+            adet++;
+        }
+        //System.out.println("float array: ");
+        //System.out.println(Arrays.toString(xr));
+        return xr;
     }
 
 }
+
+
+/*
+[4, 4, 2, 3, 4, 5, 2, 1, 0, 0]
+[5, 4, 1, 4, 3, 4, 2, 2, 0, 0]
+ */
